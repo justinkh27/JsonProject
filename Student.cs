@@ -25,7 +25,7 @@ namespace JsonProject
 
     public class Rootobject
     {
-        public Class1[] Property1 { get; set; }
+        public List<Class1> masterList { get; set; }
         public int Id { get; set; }
         public string Name { get; set; }
         public string Degree { get; set; }

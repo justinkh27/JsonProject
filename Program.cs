@@ -28,27 +28,39 @@ namespace JsonProject
                 Name = "Bruce Wayne",
                 Degree = "MA"
             };
+            Class1 student3 = new Class1()
+            {
+                Id = 3,
+                Name = "Batman",
+                Degree = "MA"
+            };
+
             students.Add(student1);
             students.Add(student2);
+            students.Add(student3);
+
+
+            var ml = new Rootobject();
+            ml.masterList = students;
 
             Console.WriteLine(students[0].Name);
             var options = new JsonSerializerOptions { WriteIndented = true };
-            var toJsonFile = JsonSerializer.Serialize(students, options);
+            var toJsonFile = JsonSerializer.Serialize(ml, options);
             Console.WriteLine(toJsonFile);
             File.WriteAllText(filePath, toJsonFile);
 
             string fileName = "students.json";
             string jsonFileResult = File.ReadAllText(fileName);
-            var ro = JsonSerializer.Deserialize<Rootobject[]>(jsonFileResult);
+            var ro = JsonSerializer.Deserialize<Rootobject>(jsonFileResult);
 
-            Console.WriteLine(ro[0].Degree);
+            Console.WriteLine(ro);
 
-            foreach (var item in ro)
-            {
-                Console.WriteLine(item.Id);
-                Console.WriteLine(item.Name);
-                Console.WriteLine(item.Degree);
-            }
+            //foreach (var item in ro)
+            //{
+            //    Console.WriteLine(item.Id);
+            //    Console.WriteLine(item.Name);
+            //    Console.WriteLine(item.Degree);
+            //}
             
             
 
