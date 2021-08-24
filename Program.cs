@@ -13,22 +13,22 @@ namespace JsonProject
         public static void Main(string[] args)
         {
             string filePath = "students.json";
-            List<Class1> students = new List<Class1>();
+            List<Student> students = new List<Student>();
 
-            Class1 student1 = new Class1()
+            Student student1 = new Student()
             {
                 Id = 1,
                 Name = "John Smith",
                 Degree = "CS"
 
             };
-            Class1 student2 = new Class1()
+            Student student2 = new Student()
             {
                 Id = 2,
                 Name = "Bruce Wayne",
                 Degree = "MA"
             };
-            Class1 student3 = new Class1()
+            Student student3 = new Student()
             {
                 Id = 3,
                 Name = "Batman",
@@ -40,8 +40,11 @@ namespace JsonProject
             students.Add(student3);
 
 
-            var ml = new Rootobject();
-            ml.masterList = students;
+            var ml = new Studentlist();
+            ml.MasterList = students;
+            ml.SchoolAddress = "123 College Ave";
+            ml.SchoolName = "Degree Mill";
+            ml.SchoolDivision = 4;
 
             Console.WriteLine(students[0].Name);
             var options = new JsonSerializerOptions { WriteIndented = true };
@@ -51,19 +54,9 @@ namespace JsonProject
 
             string fileName = "students.json";
             string jsonFileResult = File.ReadAllText(fileName);
-            var ro = JsonSerializer.Deserialize<Rootobject>(jsonFileResult);
+            var sl = JsonSerializer.Deserialize<Studentlist>(jsonFileResult);
 
-            Console.WriteLine(ro);
-
-            //foreach (var item in ro)
-            //{
-            //    Console.WriteLine(item.Id);
-            //    Console.WriteLine(item.Name);
-            //    Console.WriteLine(item.Degree);
-            //}
-            
-            
-
+            Console.WriteLine(sl);
 
             
 

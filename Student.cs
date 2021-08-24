@@ -7,31 +7,16 @@ using System.Text.Json;
 
 namespace JsonProject
 {
-    //class Masterlist
-    //{
-    //    public Student[] Studentlist { get; set; }
-    //    public int Id { get; set; }
-    //    public string Name { get; set; }
-    //    public string Degree { get; set; }
-    //}
-
-    //class Student
-    //{
-    //    public int Id { get; set; }
-    //    public string Name { get; set; }
-    //    public string Degree { get; set; }
-    //}
-
-
-    public class Rootobject
+    
+    public class Studentlist
     {
-        public List<Class1> masterList { get; set; }
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public string Degree { get; set; }
+        public List<Student> MasterList { get; set; }
+        public string SchoolName {  get; set; }
+        public string SchoolAddress {  get; set; }
+        public int SchoolDivision {  get; set; }
     }
 
-    public class Class1
+    public class Student
     {
         public int Id { get; set; }
         public string Name { get; set; }
